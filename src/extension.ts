@@ -74,7 +74,7 @@ export function activate(context: vscode.ExtensionContext) {
   );
   //insert console.error()
   vscode.commands.registerCommand(
-    "turboConsoleLog.displayErroMessage",
+    "turboConsoleLog.displayErrorMessage",
     async () => {
       const editor: vscode.TextEditor | undefined =
         vscode.window.activeTextEditor;
@@ -102,7 +102,7 @@ export function activate(context: vscode.ExtensionContext) {
         // Check if the selection line is not the last one in the document and the selected variable is not empty
         if (selectedVar.trim().length !== 0) {
           const logType = 'error'
-          const logFunction = 'error'
+          const logFunction = 'log'
           const logMessagePrefix = '🧯 🔥'
           const {
             wrapLogMessage,
@@ -166,7 +166,7 @@ export function activate(context: vscode.ExtensionContext) {
         // Check if the selection line is not the last one in the document and the selected variable is not empty
         if (selectedVar.trim().length !== 0) {
           const logType = 'table'
-          const logFunction = 'table'
+          const logFunction = 'log'
           const logMessagePrefix = '🔥'
           const {
             wrapLogMessage,
