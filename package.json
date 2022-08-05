@@ -1,9 +1,9 @@
 {
-  "name": "turbo-console-log",
-  "displayName": "Turbo Console Log",
+  "name": "1lint-console-log",
+  "displayName": "1lint Console Log",
   "description": "Automating the process of writing meaningful log messages.",
   "version": "2.3.2",
-  "publisher": "ChakrounAnas",
+  "publisher": "kuldeepat1lint",
   "engines": {
     "vscode": "^1.50.0"
   },
@@ -30,12 +30,12 @@
         },
         "turboConsoleLog.logMessagePrefix": {
           "type": "string",
-          "default": "🚀",
+          "default": "🔥",
           "description": "The prefix of the log message."
         },
         "turboConsoleLog.includeFileNameAndLineNum": {
           "type": "boolean",
-          "default": true,
+          "default": false,
           "description": "Whether to include the file name and the line number of the log message."
         },
         "turboConsoleLog.addSemicolonInTheEnd": {
@@ -125,6 +125,16 @@
         "command": "turboConsoleLog.deleteAllLogMessages",
         "key": "alt+shift+d",
         "mac": "alt+shift+d"
+      },
+      {
+        "command": "turboConsoleLog.displayErrorMessage",
+        "key": "ctrl+alt+e",
+        "mac": "ctrl+alt+e"
+      },
+      {
+        "command": "turboConsoleLog.displayTableLogMessage",
+        "key": "ctrl+alt+t",
+        "mac": "ctrl+alt+t"
       }
     ]
   },

@@ -37,6 +37,8 @@ export function activate(context: vscode.ExtensionContext) {
         const lineOfSelectedVar: number = selection.active.line;
         // Check if the selection line is not the last one in the document and the selected variable is not empty
         if (selectedVar.trim().length !== 0) {
+          const logType = 'log'
+          const logFunction = 'log'
           const {
             wrapLogMessage,
             logMessagePrefix,
@@ -46,8 +48,134 @@ export function activate(context: vscode.ExtensionContext) {
             insertEnclosingFunction,
             delimiterInsideMessage,
             includeFileNameAndLineNum,
-            logType,
-            logFunction
+          } = properties;
+          await editor.edit((editBuilder) => {
+            jsDebugMessage.msg(
+              editBuilder,
+              document,
+              selectedVar,
+              lineOfSelectedVar,
+              wrapLogMessage,
+              logMessagePrefix,
+              quote,
+              addSemicolonInTheEnd,
+              insertEnclosingClass,
+              insertEnclosingFunction,
+              delimiterInsideMessage,
+              includeFileNameAndLineNum,
+              tabSize,
+              logType,
+              logFunction
+            );
+          });
+        }
+      }
+    }
+  );
+  //insert console.error()
+  vscode.commands.registerCommand(
+    "turboConsoleLog.displayErroMessage",
+    async () => {
+      const editor: vscode.TextEditor | undefined =
+        vscode.window.activeTextEditor;
+      if (!editor) {
+        return;
+      }
+      const tabSize: number | string = getTabSize(editor.options.tabSize);
+      const document: vscode.TextDocument = editor.document;
+      const config: vscode.WorkspaceConfiguration =
+        vscode.workspace.getConfiguration("turboConsoleLog");
+      const properties: ExtensionProperties = getExtensionProperties(config);
+      for (let index = 0; index < editor.selections.length; index++) {
+        const selection: vscode.Selection = editor.selections[index];
+        
+        let wordUnderCursor = "";
+        const rangeUnderCursor: vscode.Range | undefined = document.getWordRangeAtPosition(
+            selection.active
+        );
+        // if rangeUnderCursor is undefined, `document.getText(undefined)` will return the entire file.
+        if (rangeUnderCursor) {
+            wordUnderCursor = document.getText(rangeUnderCursor);
+        }
+        const selectedVar: string = document.getText(selection) || wordUnderCursor;
+        const lineOfSelectedVar: number = selection.active.line;
+        // Check if the selection line is not the last one in the document and the selected variable is not empty
+        if (selectedVar.trim().length !== 0) {
+          const logType = 'error'
+          const logFunction = 'error'
+          const logMessagePrefix = '🧯 🔥'
+          const {
+            wrapLogMessage,
+            quote,
+            addSemicolonInTheEnd,
+            insertEnclosingClass,
+            insertEnclosingFunction,
+            delimiterInsideMessage,
+            includeFileNameAndLineNum,
+          } = properties;
+          await editor.edit((editBuilder) => {
+            jsDebugMessage.msg(
+              editBuilder,
+              document,
+              selectedVar,
+              lineOfSelectedVar,
+              wrapLogMessage,
+              logMessagePrefix,
+              quote,
+              addSemicolonInTheEnd,
+              insertEnclosingClass,
+              insertEnclosingFunction,
+              delimiterInsideMessage,
+              includeFileNameAndLineNum,
+              tabSize,
+              logType,
+              logFunction
+            );
+          });
+        }
+      }
+    }
+  );
+   //insert console.table()
+   vscode.commands.registerCommand(
+    "turboConsoleLog.displayTableLogMessage",
+    async () => {
+      const editor: vscode.TextEditor | undefined =
+        vscode.window.activeTextEditor;
+      if (!editor) {
+        return;
+      }
+      const tabSize: number | string = getTabSize(editor.options.tabSize);
+      const document: vscode.TextDocument = editor.document;
+      const config: vscode.WorkspaceConfiguration =
+        vscode.workspace.getConfiguration("turboConsoleLog");
+      const properties: ExtensionProperties = getExtensionProperties(config);
+      for (let index = 0; index < editor.selections.length; index++) {
+        const selection: vscode.Selection = editor.selections[index];
+        
+        let wordUnderCursor = "";
+        const rangeUnderCursor: vscode.Range | undefined = document.getWordRangeAtPosition(
+            selection.active
+        );
+        // if rangeUnderCursor is undefined, `document.getText(undefined)` will return the entire file.
+        if (rangeUnderCursor) {
+            wordUnderCursor = document.getText(rangeUnderCursor);
+        }
+        const selectedVar: string = document.getText(selection) || wordUnderCursor;
+        const lineOfSelectedVar: number = selection.active.line;
+        // Check if the selection line is not the last one in the document and the selected variable is not empty
+        if (selectedVar.trim().length !== 0) {
+          const logType = 'table'
+          const logFunction = 'table'
+          const logMessagePrefix = '🔥'
+          const {
+            wrapLogMessage,
+            quote,
+            addSemicolonInTheEnd,
+            insertEnclosingClass,
+            insertEnclosingFunction,
+            delimiterInsideMessage,
+            includeFileNameAndLineNum,
           } = properties;
           await editor.edit((editBuilder) => {
             jsDebugMessage.msg(
