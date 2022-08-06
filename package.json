@@ -12,10 +12,10 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:turboConsoleLog.displayLogMessage",
-    "onCommand:turboConsoleLog.commentAllLogMessages",
-    "onCommand:turboConsoleLog.uncommentAllLogMessages",
-    "onCommand:turboConsoleLog.deleteAllLogMessages"
+    "onCommand:OnelintConsoleLog.displayLogMessage",
+    "onCommand:OnelintConsoleLog.commentAllLogMessages",
+    "onCommand:OnelintConsoleLog.uncommentAllLogMessages",
+    "onCommand:OnelintConsoleLog.deleteAllLogMessages"
   ],
   "main": "./out/extension.js",
   "contributes": {
@@ -23,42 +23,42 @@
       "type": "object",
       "title": "Turbo Console Log Configuration",
       "properties": {
-        "turboConsoleLog.wrapLogMessage": {
+        "OnelintConsoleLog.wrapLogMessage": {
           "type": "boolean",
           "default": false,
           "description": "Determine if the log message should be wrapped or not."
         },
-        "turboConsoleLog.logMessagePrefix": {
+        "OnelintConsoleLog.logMessagePrefix": {
           "type": "string",
           "default": "🔥",
           "description": "The prefix of the log message."
         },
-        "turboConsoleLog.includeFileNameAndLineNum": {
+        "OnelintConsoleLog.includeFileNameAndLineNum": {
           "type": "boolean",
           "default": false,
           "description": "Whether to include the file name and the line number of the log message."
         },
-        "turboConsoleLog.addSemicolonInTheEnd": {
+        "OnelintConsoleLog.addSemicolonInTheEnd": {
           "type": "boolean",
           "default": false,
           "description": "Whether to add or not a semicolon in the end of the log message."
         },
-        "turboConsoleLog.insertEnclosingClass": {
+        "OnelintConsoleLog.insertEnclosingClass": {
           "type": "boolean",
           "default": true,
           "description": "Whether to insert or not the enclosing class of the selected variable in the log message."
         },
-        "turboConsoleLog.insertEnclosingFunction": {
+        "OnelintConsoleLog.insertEnclosingFunction": {
           "type": "boolean",
           "default": true,
           "description": "Whether to insert or not the enclosing function of the selected variable in the log message."
         },
-        "turboConsoleLog.delimiterInsideMessage": {
+        "OnelintConsoleLog.delimiterInsideMessage": {
           "type": "string",
           "default": "~",
           "description": "The delimiter that will separate the different log message elements (file name, line number, class, function and variable)"
         },
-        "turboConsoleLog.quote": {
+        "OnelintConsoleLog.quote": {
           "type": "string",
           "enum": [
             "\"",
@@ -68,7 +68,7 @@
           "default": "\"",
           "description": "Double quotes, single quotes or backtick"
         },
-        "turboConsoleLog.logType": {
+        "OnelintConsoleLog.logType": {
           "type": "string",
           "enum": [
             "log",
@@ -80,7 +80,7 @@
           "default": "log",
           "description": "Select the log type"
         },
-        "turboConsoleLog.logFunction": {
+        "OnelintConsoleLog.logFunction": {
           "type": "string",
           "default": "log",
           "description": "Specify a log function (when specified logType will be ignored)"
@@ -89,60 +89,60 @@
     },
     "commands": [
       {
-        "command": "turboConsoleLog.displayLogMessage",
+        "command": "OnelintConsoleLog.displayLogMessage",
         "title": "Turbo Console Log: Display Log Message"
       },
       {
-        "command": "turboConsoleLog.commentAllLogMessages",
+        "command": "OnelintConsoleLog.commentAllLogMessages",
         "title": "Turbo Console Log: Comment All Log Messages"
       },
       {
-        "command": "turboConsoleLog.uncommentAllLogMessages",
+        "command": "OnelintConsoleLog.uncommentAllLogMessages",
         "title": "Turbo Console Log: Uncomment All Log Messages"
       },
       {
-        "command": "turboConsoleLog.deleteAllLogMessages",
+        "command": "OnelintConsoleLog.deleteAllLogMessages",
         "title": "Turbo Console Log: Delete All Log Messages"
       },
       {
-        "command": "turboConsoleLog.displayTableLogMessage",
+        "command": "OnelintConsoleLog.displayTableLogMessage",
         "title": "Turbo Console.table() Messages"
       },
       {
-        "command": "turboConsoleLog.displayErrorMessage",
+        "command": "OnelintConsoleLog.displayErrorMessage",
         "title": "Turbo Console.error() Messages"
       }
     ],
     "keybindings": [
       {
-        "command": "turboConsoleLog.displayLogMessage",
+        "command": "OnelintConsoleLog.displayLogMessage",
         "key": "ctrl+alt+l",
         "mac": "ctrl+alt+l"
       },
       {
-        "command": "turboConsoleLog.commentAllLogMessages",
+        "command": "OnelintConsoleLog.commentAllLogMessages",
         "key": "alt+shift+c",
         "mac": "alt+shift+c"
       },
       {
-        "command": "turboConsoleLog.uncommentAllLogMessages",
+        "command": "OnelintConsoleLog.uncommentAllLogMessages",
         "key": "alt+shift+u",
         "mac": "alt+shift+u"
       },
       {
-        "command": "turboConsoleLog.deleteAllLogMessages",
+        "command": "OnelintConsoleLog.deleteAllLogMessages",
         "key": "alt+shift+d",
         "mac": "alt+shift+d"
       },
       {
-        "command": "turboConsoleLog.displayErrorMessage",
+        "command": "OnelintConsoleLog.displayErrorMessage",
         "key": "ctrl+alt+e",
         "mac": "ctrl+alt+e"
       },
       {
-        "command": "turboConsoleLog.displayTableLogMessage",
-        "key": "ctrl+alt+t",
-        "mac": "ctrl+alt+t"
+        "command": "OnelintConsoleLog.displayTableLogMessage",
+        "key": "alt+shift+t",
+        "mac": "alt+shift+t"
       }
     ]
   },
