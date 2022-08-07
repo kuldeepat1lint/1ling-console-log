@@ -2,7 +2,7 @@
   "name": "1lint-console-log",
   "displayName": "1lint Console Log",
   "description": "Automating the process of writing meaningful log messages.",
-  "version": "2.3.2",
+  "version": "3.3.5",
   "publisher": "KuldeepParmar",
   "engines": {
     "vscode": "^1.50.0"
@@ -21,7 +21,7 @@
   "contributes": {
     "configuration": {
       "type": "object",
-      "title": "Turbo Console Log Configuration",
+      "title": "1lint Console Log Configuration",
       "properties": {
         "OnelintConsoleLog.wrapLogMessage": {
           "type": "boolean",
@@ -90,27 +90,27 @@
     "commands": [
       {
         "command": "OnelintConsoleLog.displayLogMessage",
-        "title": "Turbo Console Log: Display Log Message"
+        "title": "1lint Console Log: Display Log Message"
       },
       {
         "command": "OnelintConsoleLog.commentAllLogMessages",
-        "title": "Turbo Console Log: Comment All Log Messages"
+        "title": "1lint Console Log: Comment All Log Messages"
       },
       {
         "command": "OnelintConsoleLog.uncommentAllLogMessages",
-        "title": "Turbo Console Log: Uncomment All Log Messages"
+        "title": "1lint Console Log: Uncomment All Log Messages"
       },
       {
         "command": "OnelintConsoleLog.deleteAllLogMessages",
-        "title": "Turbo Console Log: Delete All Log Messages"
+        "title": "1lint Console Log: Delete All Log Messages"
       },
       {
         "command": "OnelintConsoleLog.displayTableLogMessage",
-        "title": "Turbo Console.table() Messages"
+        "title": "1lint Console.table() Messages"
       },
       {
         "command": "OnelintConsoleLog.displayErrorMessage",
-        "title": "Turbo Console.error() Messages"
+        "title": "1lint Console.error() Messages"
       }
     ],
     "keybindings": [
