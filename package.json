@@ -13,6 +13,8 @@
   ],
   "activationEvents": [
     "onCommand:OnelintConsoleLog.displayLogMessage",
+    "onCommand:OnelintConsoleLog.displayErrorMessage",
+    "onCommand:OnelintConsoleLog.displayTableLogMessage",
     "onCommand:OnelintConsoleLog.commentAllLogMessages",
     "onCommand:OnelintConsoleLog.uncommentAllLogMessages",
     "onCommand:OnelintConsoleLog.deleteAllLogMessages"
